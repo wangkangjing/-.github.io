@@ -1,0 +1,92 @@
+﻿<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>给你的告白</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            background-color: #ffd1dc;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            text-align: center;
+            max-width: 600px;
+        }
+
+        .heart {
+            font-size: 100px;
+            animation: heartbeat 1s infinite;
+            margin: 20px 0;
+        }
+
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+
+        .message {
+            font-size: 18px;
+            margin: 20px 0;
+            line-height: 1.6;
+        }
+
+        button {
+            padding: 15px 30px;
+            font-size: 18px;
+            border: none;
+            border-radius: 25px;
+            background-color: #ff4d6d;
+            color: white;
+            cursor: pointer;
+            margin: 10px;
+            transition: transform 0.2s;
+        }
+
+        button:hover {
+            transform: scale(1.1);
+        }
+
+        #no-btn {
+            background-color: #gray;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="heart">❤️</div>
+        <div class="message">
+            <p>亲爱的，</p>
+            <p>遇见你是我最大的幸运</p>
+            <p>我喜欢你，</p>
+            <p>愿意做我的另一半吗？</p>
+        </div>
+        <div>
+            <button id="yes-btn" onclick="accepted()">愿意</button>
+            <button id="no-btn" onmouseover="moveButton()">不愿意</button>
+        </div>
+        <p id="result"></p>
+    </div>
+
+    <script>
+        function moveButton() {
+            const button = document.getElementById('no-btn');
+            button.style.position = 'absolute';
+            button.style.left = Math.random() * (window.innerWidth - button.offsetWidth) + 'px';
+            button.style.top = Math.random() * (window.innerHeight - button.offsetHeight) + 'px';
+        }
+
+        function accepted() {
+            document.getElementById('result').innerHTML = '❤️ 太好了！我们在一起吧！ ❤️';
+            document.getElementById('no-btn').style.display = 'none';
+        }
+    </script>
+</body>
